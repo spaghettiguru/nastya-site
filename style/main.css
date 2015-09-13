@@ -1,0 +1,106 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: #100f0f;
+}
+
+.page-wrapper {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+}
+
+.sidebar {
+	float: left;
+	color: #f4ebeb;
+}
+
+.page-name {
+	margin-top: 0;
+	line-height: 0.9;
+	font-family: 'Poiret One', cursive;
+}
+
+.page-navigation {
+	margin-top: 100px;
+}
+
+.nav-list {
+	list-style: none;
+	padding-left: 0;
+	font-size: 18px;
+	font-family: 'Poiret One', cursive;
+	line-height: 2.4;
+	text-transform: uppercase;
+}
+
+.nav-list a:link,
+.nav-list a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-selected a:link,
+.nav-selected a:visited {
+	color: #fbf931;
+}
+
+.page-footer {
+	position: absolute;
+	bottom: 0;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1;
+	color: #6B6A6A;
+}
+
+.main-content {
+	box-sizing: border-box;
+	background: #FBF9F9;
+	color: #100f0f;
+	width: 960px;
+	height: 100%;
+	/*box-shadow: 0 0 3px 1px white;*/
+	margin-left: 365px;
+	overflow: auto;
+	font-size: 16px;
+	line-height: 1.6;
+	padding: 10px 40px;
+	font-family: Helvetica, sans-serif;
+}
+
+.video {
+	margin: 20px 0;
+}
+
+.cards {
+	text-align: center;
+}
+
+.card {
+	margin-right: 15px;
+	max-width: 200px;
+	margin-bottom: 15px;
+}
+
+.big-image {
+	max-width: 100%;
+}
+
+figure {
+	text-align: center;
+}
+
+.page-section {
+	display: none;
+}
+
+.page-section:target {
+	display: block;
+}
