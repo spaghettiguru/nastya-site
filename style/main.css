@@ -3,7 +3,6 @@ html, body {
 }
 
 body {
-	margin: 0;
 	background: #100f0f;
 }
 
@@ -16,12 +15,16 @@ body {
 }
 
 .sidebar {
-	float: left;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 350px;
 	color: #f4ebeb;
 }
 
 .page-name {
 	margin-top: 0;
+	font-size: 26px;
 	line-height: 0.9;
 	font-family: 'Poiret One', cursive;
 }
@@ -69,19 +72,19 @@ body {
 	box-sizing: border-box;
 	background: #FBF9F9;
 	color: #100f0f;
-	width: 960px;
+	max-width: 960px;
 	height: 100%;
 	/*box-shadow: 0 0 3px 1px white;*/
-	margin-left: 365px;
+	margin-left: 350px;
 	overflow: auto;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 1.6;
 	padding: 10px 40px;
 	font-family: Georgia, serif;
 }
 
 .video {
-	margin: 20px 0;
+	margin: 40px 0;
 }
 
 .cards {
@@ -100,6 +103,11 @@ body {
 
 figure {
 	text-align: center;
+}
+
+figcaption {
+	font-family: Arial;
+	font-size: smaller;
 }
 
 .page-section {
