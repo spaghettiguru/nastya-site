@@ -26,6 +26,11 @@ body {
 	font-family: 'Poiret One', cursive;
 }
 
+.page-name a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .page-navigation {
 	margin-top: 100px;
 }
