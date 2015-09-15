@@ -23,6 +23,7 @@ body {
 }
 
 .page-name {
+	position: absolute;
 	margin-top: 0;
 	font-size: 26px;
 	line-height: 0.9;
@@ -35,7 +36,8 @@ body {
 }
 
 .page-navigation {
-	margin-top: 100px;
+	position: absolute;
+	top: 100px;
 }
 
 .nav-list {
@@ -77,10 +79,11 @@ body {
 	/*box-shadow: 0 0 3px 1px white;*/
 	margin-left: 350px;
 	overflow: auto;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 1.6;
 	padding: 10px 40px;
-	font-family: Georgia, serif;
+	font-family: "Open Sans", sans-serif;
+	/*font-family: Georgia, serif;*/
 }
 
 .video {
@@ -116,4 +119,10 @@ figcaption {
 
 .page-section:target {
 	display: block;
+}
+
+.projector-light {
+	position: absolute;
+	/*width: 100%;*/
+	/*height: 100%;*/
 }
