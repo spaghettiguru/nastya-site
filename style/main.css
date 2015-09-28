@@ -10,7 +10,7 @@ body {
 	position: absolute;
 	top: 20px;
 	left: 20px;
-	right: 20px;
+	right: 0;
 	bottom: 20px;
 }
 
@@ -33,6 +33,7 @@ body {
 .page-name a {
 	text-decoration: none;
 	color: inherit;
+	text-shadow: 0 0 6px rgba(244, 235, 235, .5);
 }
 
 .page-navigation {
@@ -56,8 +57,8 @@ body {
 }
 
 .nav-list a:hover,
-.nav-selected a:link,
-.nav-selected a:visited {
+.nav-link.nav-selected:link,
+.nav-link.nav-selected:visited {
 	color: #fbf931;
 }
 
@@ -74,16 +75,14 @@ body {
 	box-sizing: border-box;
 	background: #FBF9F9;
 	color: #100f0f;
-	max-width: 960px;
 	height: 100%;
 	/*box-shadow: 0 0 3px 1px white;*/
 	margin-left: 350px;
 	overflow: auto;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.6;
 	padding: 10px 40px;
-	font-family: "Open Sans", sans-serif;
-	/*font-family: Georgia, serif;*/
+	font-family: Georgia, serif;
 }
 
 .video {
@@ -115,6 +114,13 @@ figcaption {
 
 .page-section {
 	display: none;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.page-section p {
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .page-section:target {
