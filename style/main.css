@@ -6,6 +6,10 @@ body {
 	background: #100f0f;
 }
 
+.vp-height {
+	height: 100vh;
+}
+
 .page-wrapper {
 	position: absolute;
 	top: 20px;
@@ -33,7 +37,7 @@ body {
 .page-name a {
 	text-decoration: none;
 	color: inherit;
-	text-shadow: 0 0 6px rgba(244, 235, 235, .5);
+	/*text-shadow: 0 0 6px rgba(244, 235, 235, .5);*/
 }
 
 .page-navigation {
@@ -59,14 +63,15 @@ body {
 .nav-list a:hover,
 .nav-link.nav-selected:link,
 .nav-link.nav-selected:visited {
-	color: #fbf931;
+	color: #C2DAFF;
+	text-shadow: 0 0 6px;
 }
 
 .page-footer {
 	position: absolute;
 	bottom: 0;
 	font-family: Arial, sans-serif;
-	font-size: 12px;
+	font-size: 11px;
 	line-height: 1;
 	color: #6B6A6A;
 }

@@ -16,7 +16,7 @@ function drawLightFromMenuItem(menuItem) {
 		canvasCtx.lineTo(screenBB.left - 20, screenBB.top - 20);
 		canvasCtx.lineTo(screenBB.left - 20, screenBB.bottom - 20);
 		canvasCtx.closePath();
-		canvasCtx.fillStyle = "rgba(255, 255, 255, .12)";
+		canvasCtx.fillStyle = "rgba(200, 200, 255, .1)";
 		canvasCtx.fill();
 	}
 }
