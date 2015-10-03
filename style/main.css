@@ -31,13 +31,15 @@ body {
 	margin-top: 0;
 	font-size: 20px;
 	line-height: 0.9;
+	font-weight: normal;
+    word-spacing: .4em;
+    letter-spacing: 0.02em;
 	font-family: "Open Sans", sans-serif;
 }
 
 .page-name a {
 	text-decoration: none;
 	color: inherit;
-	/*text-shadow: 0 0 6px rgba(244, 235, 235, .5);*/
 }
 
 .name-first-letter {
@@ -64,11 +66,14 @@ body {
 	text-decoration: none;
 }
 
-.nav-list a:hover,
 .nav-link.nav-selected:link,
 .nav-link.nav-selected:visited {
 	color: #C2DAFF;
 	text-shadow: 0 0 6px;
+}
+
+.nav-list a:hover {
+	color: #C2DAFF;
 }
 
 .page-footer {
@@ -82,7 +87,7 @@ body {
 
 .main-content {
 	box-sizing: border-box;
-	background: #FBF9F9;
+	background: #EAEAEA;
 	color: #100f0f;
 	height: 100%;
 	max-width: 960px;
@@ -131,6 +136,8 @@ figcaption {
 .page-section p {
 	margin-top: 40px;
 	margin-bottom: 40px;
+	word-spacing: 0.1em;
+	letter-spacing: 0.01em;
 }
 
 .page-section:target {
