@@ -1,33 +1,80 @@
+"use strict";
+
+(function() {
 var canvas = document.querySelector(".projector-light");
 var canvasCtx = canvas.getContext("2d");
 var screen = document.querySelector(".main-content");
+var lastPoint = {x: 0, y: 0};
 
-function findMenuItemByURLHash(hash) {
-	return document.querySelector(".nav-link[href=\"" + hash + "\"]");
-}
+canvasCtx.fillStyle = "rgba(200, 200, 255, .1)";
 
-function drawLightFromMenuItem(menuItem) {
-	if (menuItem) {
+function drawLightFromMenuItem(menuItem, animationEndCallback) {
 		var screenBB = screen.getBoundingClientRect();
 		var menuItemBB = menuItem.getBoundingClientRect();
-		canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-		canvasCtx.beginPath();
-		canvasCtx.moveTo(menuItemBB.right - 10, menuItemBB.top - 20 + menuItemBB.height/2 );
-		canvasCtx.lineTo(screenBB.left - 20, screenBB.top - 20);
-		canvasCtx.lineTo(screenBB.left - 20, screenBB.bottom - 20);
-		canvasCtx.closePath();
-		canvasCtx.fillStyle = "rgba(200, 200, 255, .1)";
-		canvasCtx.fill();
-	}
+		var x1 = menuItemBB.right - 10,
+		y1 = menuItemBB.top + menuItemBB.height/2,
+		x2 = screenBB.left - 20,
+		y2 = screenBB.top,
+		x3 = x2,
+		y3 = screenBB.bottom;
+
+		if (typeof animationEndCallback == "function") {
+			var xDistance = Math.abs(lastPoint.x - x1);
+			var yDistance = Math.abs(lastPoint.y - y1);
+			var XToYdistanceRatio = xDistance / yDistance;
+			var multiplier = 5;
+			var xStep = (lastPoint.x < x1 ? 1 : -1) * multiplier * XToYdistanceRatio;
+			var yStep = (lastPoint.y < y1 ? 1 : -1) * multiplier;
+
+			window.requestAnimationFrame(function paintFrame() {
+				canvasCtx.clearRect(lastPoint.x, 0, canvas.width - lastPoint.x, canvas.height);
+
+				if (lastPoint.x !== x1) {
+					lastPoint.x += Math.abs(xStep) <= Math.abs(x1 - lastPoint.x) ? xStep : (x1 - lastPoint.x);
+				}
+
+				if (lastPoint.y !== y1) {
+					lastPoint.y += Math.abs(yStep) <= Math.abs(y1 - lastPoint.y) ? yStep : (y1 - lastPoint.y);
+				}
+
+				drawTriangle(lastPoint.x, lastPoint.y, x2, y2, x3, y3);
+				
+				if (lastPoint.x !== x1 && lastPoint.y !== y1) {
+					window.requestAnimationFrame(paintFrame);
+				} else {
+					animationEndCallback();
+				}
+			});
+		} else {
+			canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+			drawTriangle(x1, y1, x2, y2, x3, y3);
+			lastPoint = {x: x1, y: y1};
+		}
 }
 
-drawLightFromMenuItem(findMenuItemByURLHash("#mymotherlovesme"));
+function drawTriangle(x1, y1, x2, y2, x3, y3) {
+	canvasCtx.beginPath();
+	canvasCtx.moveTo(x1, y1);
+	canvasCtx.lineTo(x2, y2);
+	canvasCtx.lineTo(x3, y3);
+	canvasCtx.closePath();
+	canvasCtx.fill();
+}
 
-window.addEventListener("hashchange", function(event) {
-	var menuItem = findMenuItemByURLHash(window.location.hash);
+// draw initial triangle
+drawLightFromMenuItem(document.querySelector(".nav-selected"));
 
-	var oldSelectedItem = document.querySelector(".nav-selected");
-	oldSelectedItem.classList.remove("nav-selected");
-	menuItem.classList.add("nav-selected");
-	drawLightFromMenuItem(menuItem);
+var navigationLinks = document.querySelectorAll(".nav-link");
+Array.prototype.slice.call(navigationLinks).forEach(function(navLink, index) {
+	navLink.addEventListener("click", function(event) {
+		var oldSelectedItem = document.querySelector(".nav-selected");
+		oldSelectedItem.classList.remove("nav-selected");
+		var clickedItem = this;
+		clickedItem.classList.add("nav-selected");
+		drawLightFromMenuItem(clickedItem, function(e) {
+			document.getElementById("contentFrame").setAttribute("src", clickedItem.getAttribute("href"));
+		});
+		event.preventDefault();
+	});
 });
+})();

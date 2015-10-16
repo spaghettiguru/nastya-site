@@ -1,0 +1,33 @@
+p {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	word-spacing: 0.1em;
+	letter-spacing: 0.01em;
+}
+
+figure {
+	text-align: center;
+}
+
+figcaption {
+	font-family: Arial;
+	font-size: smaller;
+}
+
+.video {
+	margin: 40px 0;
+}
+
+.page-wrapper {
+	max-width: 700px;
+	margin: 0 auto;
+	font-size: 16px;
+	line-height: 1.6;
+	/*padding: 10px 40px;*/
+	font-family: Georgia, serif;
+}
+
+.in-text-image {
+	float: left;
+	margin-right: 20px;
+}
