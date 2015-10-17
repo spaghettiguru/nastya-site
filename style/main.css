@@ -112,16 +112,6 @@ body {
 	margin-left: 320px;
 }
 
-.cards {
-	text-align: center;
-}
-
-.card {
-	margin-right: 15px;
-	max-width: 200px;
-	margin-bottom: 15px;
-}
-
 .big-image {
 	max-width: 100%;
 }
