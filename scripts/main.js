@@ -2,6 +2,8 @@
 
 (function() {
 var canvas = document.querySelector(".projector-light");
+canvas.width = 320;
+canvas.height = document.body.clientHeight;
 var canvasCtx = canvas.getContext("2d");
 var screen = document.querySelector(".main-content");
 var lastPoint = {x: 0, y: 0};
@@ -11,9 +13,9 @@ canvasCtx.fillStyle = "rgba(200, 200, 255, .1)";
 function drawLightFromMenuItem(menuItem, animationEndCallback) {
 		var screenBB = screen.getBoundingClientRect();
 		var menuItemBB = menuItem.getBoundingClientRect();
-		var x1 = menuItemBB.right - 10,
+		var x1 = menuItemBB.right + 10,
 		y1 = menuItemBB.top + menuItemBB.height/2,
-		x2 = screenBB.left - 20,
+		x2 = screenBB.left,
 		y2 = screenBB.top,
 		x3 = x2,
 		y3 = screenBB.bottom;
@@ -61,8 +63,15 @@ function drawTriangle(x1, y1, x2, y2, x3, y3) {
 	canvasCtx.fill();
 }
 
-// draw initial triangle
-drawLightFromMenuItem(document.querySelector(".nav-selected"));
+window.addEventListener("load", function(e) {
+	// draw initial triangle
+	drawLightFromMenuItem(document.querySelector(".nav-selected"));
+});
+
+window.addEventListener("resize", function(e) {
+	canvas.height = document.body.clientHeight;
+	drawLightFromMenuItem(document.querySelector(".nav-selected"));
+});
 
 var navigationLinks = document.querySelectorAll(".nav-link");
 Array.prototype.slice.call(navigationLinks).forEach(function(navLink, index) {

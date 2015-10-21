@@ -1,18 +1,20 @@
 .cards {
 	box-sizing: border-box;
 	width: calc(100% - (100% - 700px) / 2);
-	overflow: auto;
 	position: absolute;
-	padding: 15px;
-	background: lightgray;
+	margin: 40px 0;
 }
 
 /*.cards::-webkit-scrollbar {
     height: 10px;
 }*/
 
-.cards-inner {
+.cards-preview {
 	white-space: nowrap;
+	overflow: auto;
+	padding: 15px;
+	background: lightgray;
+	margin-top: 15px;
 }
 
 .card {
@@ -21,5 +23,5 @@
 }
 
 .thumbs {
-	margin-top: 480px;
+	margin-top: 580px;
 }

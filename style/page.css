@@ -1,3 +1,5 @@
+
+
 p {
 	margin-top: 40px;
 	margin-bottom: 40px;
@@ -23,11 +25,14 @@ figcaption {
 	margin: 0 auto;
 	font-size: 16px;
 	line-height: 1.6;
-	/*padding: 10px 40px;*/
 	font-family: Georgia, serif;
 }
 
 .in-text-image {
 	float: left;
 	margin-right: 20px;
+}
+
+.center-text {
+	text-align: center;
 }
