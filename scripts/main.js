@@ -69,7 +69,9 @@ window.addEventListener("load", function(e) {
 });
 
 window.addEventListener("resize", function(e) {
+	canvasCtx.save();
 	canvas.height = document.body.clientHeight;
+	canvasCtx.restore();
 	drawLightFromMenuItem(document.querySelector(".nav-selected"));
 });
 

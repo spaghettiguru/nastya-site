@@ -12,16 +12,24 @@
 .cards-preview {
 	white-space: nowrap;
 	overflow: auto;
-	padding: 15px;
+	padding: 30px;
 	background: lightgray;
 	margin-top: 15px;
+	font-size: 0; /* removes unneeded space between images */
 }
 
 .card {
-	margin-right: 15px;
 	max-width: 200px;
 }
 
+.cards-preview a {
+	margin-right: 15px;
+}
+
+.cards-preview a:last-child {
+	margin-right: 0;
+}
+
 .thumbs {
-	margin-top: 580px;
+	margin-top: 610px;
 }
