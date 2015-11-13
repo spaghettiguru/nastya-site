@@ -1,8 +1,6 @@
 .cards {
-	box-sizing: border-box;
-	width: calc(100% - (100% - 700px) / 2);
-	position: absolute;
-	margin: 40px 0;
+	height: 450px; /* placeholder height */
+	margin: 100px 0;
 }
 
 /*.cards::-webkit-scrollbar {
@@ -10,6 +8,9 @@
 }*/
 
 .cards-preview {
+	box-sizing: border-box;
+	width: calc(100% - (100% - 700px) / 2);
+	position: absolute;
 	white-space: nowrap;
 	overflow: auto;
 	padding: 30px;
@@ -30,6 +31,6 @@
 	margin-right: 0;
 }
 
-.thumbs {
-	margin-top: 610px;
+.poster {
+	margin-top: 100px;
 }

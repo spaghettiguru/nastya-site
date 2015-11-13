@@ -8,7 +8,7 @@ var canvasCtx = canvas.getContext("2d");
 var screen = document.querySelector(".main-content");
 var lastPoint = {x: 0, y: 0};
 
-canvasCtx.fillStyle = "rgba(200, 200, 255, .1)";
+canvasCtx.fillStyle = "rgba(200, 200, 255, .15)";
 
 function drawLightFromMenuItem(menuItem, animationEndCallback) {
 		var screenBB = screen.getBoundingClientRect();
