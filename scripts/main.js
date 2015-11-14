@@ -8,7 +8,9 @@ var canvasCtx = canvas.getContext("2d");
 var screen = document.querySelector(".main-content");
 var lastPoint = {x: 0, y: 0};
 
-canvasCtx.fillStyle = "rgba(200, 200, 255, .15)";
+var FILL_STYLE = "rgba(200, 200, 255, .15)";
+
+canvasCtx.fillStyle = FILL_STYLE;
 
 function drawLightFromMenuItem(menuItem, animationEndCallback) {
 		var screenBB = screen.getBoundingClientRect();
@@ -69,9 +71,8 @@ window.addEventListener("load", function(e) {
 });
 
 window.addEventListener("resize", function(e) {
-	canvasCtx.save();
 	canvas.height = document.body.clientHeight;
-	canvasCtx.restore();
+	canvasCtx.fillStyle = FILL_STYLE;
 	drawLightFromMenuItem(document.querySelector(".nav-selected"));
 });
 
