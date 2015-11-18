@@ -23,7 +23,8 @@ body {
 	box-sizing: border-box;
 	top: 0;
 	bottom: 0;
-	width: 320px;
+	width: 30%;
+	min-width: 320px;
 	color: #f4ebeb;
 	padding-left: 20px;
 }
@@ -89,7 +90,7 @@ body {
 .nav-link.nav-selected:link,
 .nav-link.nav-selected:visited {
 	color: #C2DAFF;
-	text-shadow: 0 0 6px;
+	text-shadow: 0 0 8px;
 }
 
 .nav-list a:hover {
@@ -107,10 +108,10 @@ body {
 
 .main-content {
 	box-sizing: border-box;
-	background: #EFEFEF;
+	background: #fff;
 	color: #100f0f;
 	height: 100%;
-	margin-left: 320px;
+	margin-left: 30%;
 }
 
 .big-image {

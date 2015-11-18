@@ -1,11 +1,12 @@
 "use strict";
 
 (function() {
-var canvas = document.querySelector(".projector-light");
-canvas.width = 320;
+var canvas = document.getElementById("projector-light");
+var sidebar = document.getElementById("sidebar");
+canvas.width = sidebar.getBoundingClientRect().width;
 canvas.height = document.body.clientHeight;
 var canvasCtx = canvas.getContext("2d");
-var screen = document.querySelector(".main-content");
+var screen = document.getElementById("main-content");
 var lastPoint = {x: 0, y: 0};
 
 var FILL_STYLE = "rgba(200, 200, 255, .15)";
@@ -72,6 +73,7 @@ window.addEventListener("load", function(e) {
 
 window.addEventListener("resize", function(e) {
 	canvas.height = document.body.clientHeight;
+	canvas.width = sidebar.getBoundingClientRect().width;
 	canvasCtx.fillStyle = FILL_STYLE;
 	drawLightFromMenuItem(document.querySelector(".nav-selected"));
 });
