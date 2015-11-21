@@ -24,7 +24,7 @@ body {
 	top: 0;
 	bottom: 0;
 	width: 30%;
-	min-width: 320px;
+	min-width: 290px;
 	color: #f4ebeb;
 	padding-left: 20px;
 }
@@ -128,4 +128,14 @@ body {
 	width: 100%;
 	height: 100%;
 	border: none;
+}
+
+
+
+/*******************************/
+
+@media (max-width: 1024px) {
+	.projector-light {
+		display: none;
+	}
 }

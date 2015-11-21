@@ -72,10 +72,12 @@ window.addEventListener("load", function(e) {
 });
 
 window.addEventListener("resize", function(e) {
-	canvas.height = document.body.clientHeight;
-	canvas.width = sidebar.getBoundingClientRect().width;
-	canvasCtx.fillStyle = FILL_STYLE;
-	drawLightFromMenuItem(document.querySelector(".nav-selected"));
+	if (window.innerWidth > 1000) {
+		canvas.height = document.body.clientHeight;
+		canvas.width = sidebar.getBoundingClientRect().width;
+		canvasCtx.fillStyle = FILL_STYLE;
+		drawLightFromMenuItem(document.querySelector(".nav-selected"));
+	}
 });
 
 var navigationLinks = document.querySelectorAll(".nav-link");
