@@ -111,11 +111,12 @@ body {
 	background: #fff;
 	color: #100f0f;
 	height: 100%;
-	margin-left: 30%;
-}
-
-.big-image {
-	max-width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 70%;
+	max-width: calc(100% - 290px);
 }
 
 .projector-light {
@@ -129,8 +130,6 @@ body {
 	height: 100%;
 	border: none;
 }
-
-
 
 /*******************************/
 
