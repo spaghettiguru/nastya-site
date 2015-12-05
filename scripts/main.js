@@ -9,7 +9,7 @@ var canvasCtx = canvas.getContext("2d");
 var screen = document.getElementById("main-content");
 var lastPoint = {x: 0, y: 0};
 
-var FILL_STYLE = "rgba(200, 200, 255, .15)";
+var FILL_STYLE = "rgba(200, 200, 255, .1)";
 
 canvasCtx.fillStyle = FILL_STYLE;
 
@@ -80,17 +80,174 @@ window.addEventListener("resize", function(e) {
 	}
 });
 
+function navigateToSection(event) {
+	event.preventDefault();
+	var oldSelectedItem = document.querySelector(".nav-selected");
+	oldSelectedItem.classList.remove("nav-selected");
+	var clickedItem = this;
+	clickedItem.classList.add("nav-selected");
+	drawLightFromMenuItem(clickedItem, function(e) {
+		document.getElementById("contentFrame").setAttribute("src", clickedItem.getAttribute("href"));
+	});
+}
+
+function showNavigation() {
+	sidebar.style.transition = "height .3s ease-out";
+	sidebar.style.height = "380px";
+}
+
+function hideNavigation() {
+	sidebar.style.transition = "height .3s ease-out";
+	sidebar.style.height = "40px";
+}
+
 var navigationLinks = document.querySelectorAll(".nav-link");
 Array.prototype.slice.call(navigationLinks).forEach(function(navLink, index) {
-	navLink.addEventListener("click", function(event) {
-		var oldSelectedItem = document.querySelector(".nav-selected");
-		oldSelectedItem.classList.remove("nav-selected");
-		var clickedItem = this;
-		clickedItem.classList.add("nav-selected");
-		drawLightFromMenuItem(clickedItem, function(e) {
-			document.getElementById("contentFrame").setAttribute("src", clickedItem.getAttribute("href"));
-		});
-		event.preventDefault();
+	navLink.addEventListener("click", navigateToSection);
+	navLink.addEventListener("touchstart", function(event) {
+		navigateToSection.call(this, event);
+		hideNavigation();
+		event.stopImmediatePropagation();
 	});
 });
+
+var mediaQueryList = window.matchMedia("(max-width: 960px)");
+mediaQueryList.addListener(function handleResolutionChange() {
+	if (mediaQueryList.matches) {
+		setupTouchSupport();
+	} else {
+		removeTouchSupport();
+	}
+});
+
+if (mediaQueryList.matches) {
+	setupTouchSupport();
+}
+
+/* Touch events */
+
+window.PointerEventsSupport = false;
+
+var pointerDownName = 'MSPointerDown';
+var pointerUpName = 'MSPointerUp';
+var pointerMoveName = 'MSPointerMove';
+
+if(window.PointerEvent) {
+	pointerDownName = 'pointerdown';
+	pointerUpName = 'pointerup';
+	pointerMoveName = 'pointermove';
+}
+
+// Simple way to check if some form of pointerevents is enabled or not
+if(window.PointerEvent || window.navigator.msPointerEnabled) {
+  window.PointerEventsSupport = true;
+}
+
+function setupTouchSupport() {
+
+	if (window.PointerEventsSupport) {
+	  // Add Pointer Event Listener
+	  sidebar.addEventListener(pointerDownName, slideDownNavStart, false);
+	} else {
+	  // Add Touch Listener
+	  sidebar.addEventListener('touchstart', slideDownNavStart, false);
+
+	  // Add Mouse Listener
+	  sidebar.addEventListener('mousedown', slideDownNavStart, false);
+	}
+}
+
+function removeTouchSupport() {
+	if (window.PointerEventsSupport) {
+	  // Remove Pointer Event Listener
+	  sidebar.removeEventListener(pointerDownName, slideDownNavStart, false);
+	} else {
+	  // Remove Touch Listener
+	  sidebar.removeEventListener('touchstart', slideDownNavStart, false);
+
+	  // Remove Mouse Listener
+	  sidebar.removeEventListener('mousedown', slideDownNavStart, false);
+	}
+}
+
+var initialTouchPos;
+
+function getGesturePointFromEvent(event) {
+    var point = {};
+
+    if(event.targetTouches) {
+      // Prefer Touch Events
+      point.x = event.targetTouches[0].clientX;
+      point.y = event.targetTouches[0].clientY;
+    } else {
+      // Either Mouse event or Pointer Event
+      point.x = event.clientX;
+      point.y = event.clientY;
+    }
+
+    return point;
+  }
+
+function slideDownNavStart(event) {
+
+  if(event.touches && event.touches.length > 1) {
+    return;
+  }
+
+  // Add the move and end listeners
+  if (window.PointerEventsSupport) {
+    document.addEventListener(pointerMoveName, handleGestureMove, true);
+    document.addEventListener(pointerUpName, handleGestureEnd, false);
+  } else {
+    document.addEventListener('touchmove', handleGestureMove, true);
+    document.addEventListener('touchend', handleGestureEnd, false);
+    document.addEventListener('touchcancel', handleGestureEnd, true);
+
+    document.addEventListener('mousemove', handleGestureMove, true);
+    document.addEventListener('mouseup', handleGestureEnd, false);
+  }
+
+  initialTouchPos = getGesturePointFromEvent(event);
+
+  sidebar.style.transition = 'initial';
+}
+
+function handleGestureMove(event) {
+	event.preventDefault();
+	var point = getGesturePointFromEvent(event);
+	sidebar.style.height = point.y + "px";
+}
+
+function handleGestureEnd(event) {
+  event.preventDefault();
+
+  if(event.touches && event.touches.length > 0) {
+    return;
+  }
+
+  // Remove Event Listeners
+  if (window.PointerEventsSupport) {
+    // Remove Pointer Event Listeners
+    document.removeEventListener(pointerMoveName, handleGestureMove, true);
+    document.removeEventListener(pointerUpName, handleGestureEnd, false);
+  } else {
+    // Remove Touch Listeners
+    document.removeEventListener('touchmove', handleGestureMove, true);
+    document.removeEventListener('touchend', handleGestureEnd, false);
+    document.removeEventListener('touchcancel', handleGestureEnd, true);
+
+    // Remove Mouse Listeners
+    document.removeEventListener('mousemove', handleGestureMove, true);
+    document.removeEventListener('mouseup', handleGestureEnd, false);
+  }
+
+  sidebar.style.transition = "height .3s ease-out";
+
+  if (sidebar.offsetHeight > 190) {
+  	sidebar.style.height = "380px";
+  } else {
+  	sidebar.style.height = "40px";
+  }
+}
+
 })();

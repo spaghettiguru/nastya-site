@@ -2,10 +2,6 @@ html, body {
 	height: 100%;
 }
 
-body {
-	background: #100f0f;
-}
-
 .vp-height {
 	height: 100vh;
 }
@@ -27,6 +23,7 @@ body {
 	min-width: 290px;
 	color: #f4ebeb;
 	padding-left: 20px;
+	background: #100f0f;
 }
 
 .page-name {
@@ -54,7 +51,7 @@ body {
 	font-weight: bold;
     font-size: 16px;
     color: #FFFFFF;
-    font-family: 'Poiret One', cursive;
+    font-family: 'Poiret One', Arial, sans-serif;
     position: absolute;
     z-index: 1;
     left: 100px;
@@ -136,5 +133,47 @@ body {
 @media (max-width: 1024px) {
 	.projector-light {
 		display: none;
+	}
+}
+
+@media (max-width: 960px) {
+	.main-content {
+		position: static;
+		max-width: none;
+		width: auto;
+	}
+
+	.sidebar {
+		position: absolute;
+		z-index: 1;
+		overflow: hidden;
+		min-width: 0;
+		max-height: 380px;
+		min-height: 40px;
+		width: 100%;
+		height: 40px;
+		box-shadow: 0px 0 4px 0 #0F0A54;
+	}
+
+	.page-name {
+		position: static;
+		color: white;
+		background: none;
+		padding: 0;
+	}
+
+	.page-navigation {
+		position: static;
+		margin-top: 30px;
+		transform: none;
+	}
+
+	.presents {
+		display: none;
+	}
+
+	.page-footer {
+		position: static;
+		margin-top: 50px;
 	}
 }
