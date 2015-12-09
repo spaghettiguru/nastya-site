@@ -117,6 +117,7 @@ mediaQueryList.addListener(function handleResolutionChange() {
 		setupTouchSupport();
 	} else {
 		removeTouchSupport();
+		sidebar.style.height = "";
 	}
 });
 

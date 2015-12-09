@@ -141,6 +141,7 @@ html, body {
 		position: static;
 		max-width: none;
 		width: auto;
+		padding-top: 20px;
 	}
 
 	.sidebar {
