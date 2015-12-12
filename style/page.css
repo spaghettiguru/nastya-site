@@ -19,7 +19,7 @@ figcaption {
 }
 
 .video {
-	margin: 30px 0;
+	margin: 50px 0;
 }
 
 .embed-container {
@@ -42,8 +42,7 @@ figcaption {
 
 .page-wrapper {
 	max-width: 700px;
-	margin: 0 auto;
-	padding: 7vh 0;
+	margin: 7vh auto;
 	font-size: 15px;
 	line-height: 1.6;
 	font-family: Merriweather, Georgia, serif;
@@ -62,12 +61,12 @@ figcaption {
 
 @media (max-width: 740px) {
 	.page-wrapper {
-		margin-left: 30px;
-		margin-right: 30px;
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 
 	.video {
-		margin-left: -30px;
+		margin-left: -20px;
 		width: calc(100% + 60px);
 	}
 }

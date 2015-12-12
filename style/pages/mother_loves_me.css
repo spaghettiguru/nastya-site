@@ -1,6 +1,6 @@
 .cards {
 	height: 450px; /* placeholder height */
-	margin: 18.6vh 0;
+	margin: 14.6vh 0;
 }
 
 /*.cards::-webkit-scrollbar {
@@ -9,19 +9,19 @@
 
 .cards-preview {
 	box-sizing: border-box;
-	width: calc(100% - (100% - 700px) / 2 + 30px);
+	width: calc(100% - (100% - 700px) / 2 + 25px);
 	position: absolute;
 	white-space: nowrap;
 	overflow: auto;
-	padding: 30px;
+	padding: 25px;
 	background: #E6E6E6;
 	margin-top: 15px;
-	margin-left: -30px;
+	margin-left: -25px;
 	font-size: 0; /* removes unneeded space between images */
 }
 
 .card {
-	max-width: 200px;
+	width: 200px;
 }
 
 .cards-preview a {
@@ -34,4 +34,10 @@
 
 .poster {
 	margin-top: 100px;
+}
+
+@media (max-width: 740px) {
+	.cards-preview {
+		width: 100%;
+	}
 }
