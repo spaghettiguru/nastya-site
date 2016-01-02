@@ -1,0 +1,5 @@
+node_modules/
+img/cards/sizes/
+img/stills/sizes/
+**/.DS_Store
+.idea

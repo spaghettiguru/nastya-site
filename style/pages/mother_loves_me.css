@@ -1,5 +1,4 @@
 .cards {
-	height: 450px; /* placeholder height */
 	margin: 14.6vh 0;
 }
 
@@ -9,12 +8,11 @@
 
 .cards-preview {
 	box-sizing: border-box;
-	width: calc(100% - (100% - 700px) / 2 + 25px);
-	position: absolute;
+	width: calc(50vw + 50% + 25px);
 	white-space: nowrap;
 	overflow: auto;
 	padding: 25px;
-	background: #E6E6E6;
+	background: #dedede;
 	margin-top: 15px;
 	margin-left: -25px;
 	font-size: 0; /* removes unneeded space between images */
@@ -39,5 +37,6 @@
 @media (max-width: 740px) {
 	.cards-preview {
 		width: 100%;
+		margin-left: 0;
 	}
 }

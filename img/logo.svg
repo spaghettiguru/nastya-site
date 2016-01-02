@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 402.33558 86.858913"
+   height="24.513515mm"
+   width="113.54804mm">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-149.4971,-276.57214)"
+     id="layer1">
+    <path
+       id="rect3336"
+       d="m 527.00991,296.77189 -377.51281,-20.19975 0,86.85891 402.33557,-27.26966 z"
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1.01179016px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       id="text4141"
+       y="330.10315"
+       x="155.56349"
+       style="font-style:normal;font-weight:normal;font-size:32.5px;line-height:125%;font-family:'Open Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'Open Sans';font-stretch:normal;font-variant:normal;"
+       xml:space="preserve"><tspan
+         y="330.10315"
+         x="155.56349"
+         id="tspan4143">Anastasia Mamontenko</tspan></text>
+  </g>
+</svg>
